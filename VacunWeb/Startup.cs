@@ -26,8 +26,8 @@ namespace VacunWeb
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            string connectionString = "Data Source=ASUS2\\SQLEXPRESS;Initial Catalog=VacunWebContext;User ID=sa;Password=123";
             services.AddControllersWithViews();
+            string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=VacunWebContext;User ID=sa;Password=123";
             services.AddDbContext<VacunWebContext>(
                     options=>options.UseSqlServer(connectionString)
                 );

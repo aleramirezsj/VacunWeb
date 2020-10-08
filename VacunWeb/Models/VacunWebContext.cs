@@ -10,6 +10,11 @@ namespace VacunWeb.Models
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS; Database=VacunWebContext; Trusted_Connection=True;");
+            
+           // optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=SchoolDB;Trusted_Connection=True;");
+
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
