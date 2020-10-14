@@ -16,6 +16,8 @@ namespace VacunWeb.Models
         public string SexoPaciente { get; set; }
         [Required]
         public bool PrematuroPaciente { get; set; }
+        public ICollection<Paciente> Pacientes { get; set; }
+
 
     }
 }

@@ -27,10 +27,10 @@ namespace VacunWeb.Models
         [Required]
         public string Domicilio { get; set; }
         [Required]
-        public int IdTutor { get; set; }
-        public virtual Tutor Tutor { get; set; }
-        public int IdCalendario { get; set; }
-        public virtual Calendario Calendario { get; set; }
+        public int TutorId { get; set; }
+        public Tutor Tutor { get; set; }
+        public int CalendarioId { get; set; }
+        public Calendario Calendario { get; set; }
 
     }
 }

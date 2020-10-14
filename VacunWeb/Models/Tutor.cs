@@ -15,5 +15,7 @@ namespace VacunWeb.Models
         public string Apellido { get; set; }
         [Required]
         public string Email { get; set; }
+
+        public ICollection<Paciente> Pacientes { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace VacunWeb.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.8")
+                .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -94,12 +94,6 @@ namespace VacunWeb.Migrations
                     b.Property<DateTime>("FechaNacimiento")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("IdCalendario")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdTutor")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -114,7 +108,7 @@ namespace VacunWeb.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TutorId")
+                    b.Property<int>("TutorId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -223,7 +217,9 @@ namespace VacunWeb.Migrations
 
                     b.HasOne("VacunWeb.Models.Tutor", "Tutor")
                         .WithMany()
-                        .HasForeignKey("TutorId");
+                        .HasForeignKey("TutorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("VacunWeb.Models.VacunaColocada", b =>

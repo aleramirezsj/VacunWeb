@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace VacunWeb.Migrations
 {
-    public partial class VacunWebContext4 : Migration
+    public partial class MiMigracion : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -66,9 +66,7 @@ namespace VacunWeb.Migrations
                     Prematuro = table.Column<bool>(nullable: false),
                     Peso = table.Column<double>(nullable: false),
                     Domicilio = table.Column<string>(nullable: false),
-                    IdTutor = table.Column<int>(nullable: false),
-                    TutorId = table.Column<int>(nullable: true),
-                    IdCalendario = table.Column<int>(nullable: false),
+                    TutorId = table.Column<int>(nullable: false),
                     CalendarioId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -85,7 +83,7 @@ namespace VacunWeb.Migrations
                         column: x => x.TutorId,
                         principalTable: "Tutores",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
